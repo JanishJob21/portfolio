@@ -24,10 +24,10 @@ const Navbar = ({ theme, toggleTheme }) => {
     const navLinks = [
         { name: 'Home', href: '#hero' },
         { name: 'About', href: '#about' },
+        { name: 'Services', href: '#services' },
         { name: 'Education', href: '#experience' },
         { name: 'Projects', href: '#work' },
         { name: 'Contact', href: '#contact' },
-
     ];
 
     const menuVariants = {

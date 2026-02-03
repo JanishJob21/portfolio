@@ -1,0 +1,317 @@
+/* Hybrid Welcome Screen Styles */
+.hybrid-welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    /* White background as requested */
+    overflow: hidden;
+}
+
+/* Console Shapes (Icons) */
+.console-shape {
+    position: absolute;
+    color: var(--accent);
+    opacity: 0.3;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+
+/* Floating Geometric Shapes */
+.shapes-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.geometric-shape {
+    position: absolute;
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    box-shadow: 0 0 30px var(--accent-glow);
+    will-change: transform;
+    opacity: 0.3;
+}
+
+.geometric-shape.square {
+    border-radius: 8px;
+}
+
+.geometric-shape.triangle {
+    background: transparent;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+    filter: drop-shadow(0 0 15px var(--accent-glow));
+}
+
+/* Main Content */
+.hybrid-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+/* Typewriter Name */
+.typewriter-container {
+    margin-bottom: 1rem;
+}
+
+.typewriter-name {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    margin: 0;
+    font-family: var(--font-sans);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    margin-left: 0.1em;
+    animation: cursorBlink 1s step-end infinite;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Elegant Line */
+.elegant-line {
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--accent),
+            transparent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    margin: 1rem 0;
+}
+
+/* Subtitle & Tagline */
+.hybrid-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.hybrid-tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin: 0;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/* Enter Button */
+.hybrid-enter-btn {
+    margin-top: 2rem;
+    padding: 1.2rem 3rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hybrid-enter-btn:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    box-shadow: 0 0 30px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .typewriter-name {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .elegant-line {
+        max-width: 200px;
+    }
+
+    .hybrid-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hybrid-tagline {
+        font-size: 0.95rem;
+    }
+
+    .hybrid-enter-btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .geometric-shape {
+        opacity: 0.2;
+    }
+}
+
+/* --- Migrated from index.css --- */
+
+/* Welcome Blobs */
+.welcome-blobs {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--accent);
+    filter: blur(120px);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: blobFloat 25s infinite alternate;
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    background: #a78bfa;
+    animation-delay: -5s;
+}
+
+@keyframes blobFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(100px, 100px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-100px, -50px) scale(0.9);
+    }
+}
+
+/* Glassmorphism Card Wrapper */
+.welcome-glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 3.5rem 3rem;
+    border-radius: 32px;
+    max-width: 650px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Greeting Badge */
+.greeting-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.greeting-line {
+    height: 1px;
+    width: 30px;
+    background: linear-gradient(to right, transparent, var(--accent));
+}
+
+.greeting-line:last-child {
+    background: linear-gradient(to left, transparent, var(--accent));
+}
+
+.greeting-text {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Loader Styles */
+.welcome-loader-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.loader-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+.welcome-loader {
+    width: 200px;
+    height: 2px;
+    background: var(--glass-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loader-fill {
+    height: 100%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
