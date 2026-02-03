@@ -124,9 +124,11 @@ const WelcomeScreen = ({ onComplete }) => {
                         <span className="greeting-text">
                             {(() => {
                                 const hour = new Date().getHours();
-                                if (hour >= 16 || hour < 6) return 'Good Evening';
-                                if (hour >= 12) return 'Good Afternoon';
-                                return 'Good Morning';
+                                if (hour >= 5 && hour < 11) return 'Good Morning';
+                                if (hour >= 11 && hour < 13) return 'Good Midday';
+                                if (hour >= 13 && hour < 17) return 'Good Afternoon';
+                                if (hour >= 17 && hour < 22) return 'Good Evening';
+                                return 'Good Night';
                             })()}
                         </span>
                         <span className="greeting-line" />
