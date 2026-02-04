@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Gamepad2 } from 'lucide-react';
+import { Sparkles, Gamepad2, CloudSun, Sun, CloudMoon, Moon } from 'lucide-react';
 import '../hybrid-welcome.css';
 
 const WelcomeScreen = ({ onComplete }) => {
@@ -121,14 +121,33 @@ const WelcomeScreen = ({ onComplete }) => {
                         transition={{ delay: 0.3 }}
                     >
                         <span className="greeting-line" />
-                        <span className="greeting-text">
+                        <span className="greeting-text" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             {(() => {
                                 const hour = new Date().getHours();
-                                if (hour >= 5 && hour < 11) return 'Good Morning';
-                                if (hour >= 11 && hour < 13) return 'Good Midday';
-                                if (hour >= 13 && hour < 17) return 'Good Afternoon';
-                                if (hour >= 17 && hour < 22) return 'Good Evening';
-                                return 'Good Night';
+                                let text, Icon;
+                                if (hour >= 5 && hour < 11) {
+                                    text = 'Good Morning';
+                                    Icon = CloudSun;
+                                } else if (hour >= 11 && hour < 13) {
+                                    text = 'Good Midday';
+                                    Icon = Sun;
+                                } else if (hour >= 13 && hour < 17) {
+                                    text = 'Good Afternoon';
+                                    Icon = Sun;
+                                } else if (hour >= 17 && hour < 22) {
+                                    text = 'Good Evening';
+                                    Icon = CloudMoon;
+                                } else {
+                                    text = 'Good Night';
+                                    Icon = Moon;
+                                }
+
+                                return (
+                                    <>
+                                        <Icon size={18} />
+                                        {text}
+                                    </>
+                                );
                             })()}
                         </span>
                         <span className="greeting-line" />
