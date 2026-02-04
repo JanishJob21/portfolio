@@ -6,8 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    /* White background as requested */
+    background-color: var(--bg-primary);
+    /* Theme-aware background */
     overflow: hidden;
 }
 
